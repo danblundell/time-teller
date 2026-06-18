@@ -1,0 +1,89 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --paper: #FFFEF2;
+  --ink: #1A1008;
+  --yellow: #FFD600;
+  --red: #E8271D;
+  --green: #1DBF4E;
+  --blue: #4A90D9;
+  --blue-light: #7AB8F0;
+  --blue-dark: #2B6CB0;
+  --grey: #888;
+  --dot-bg: #e8e0cc;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+}
+
+.dot-bg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--dot-bg) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Stamp animation ── */
+@keyframes stampIn {
+  0%   { transform: translate(-50%, -50%) rotate(-8deg) scale(2.2); opacity: 0; }
+  60%  { transform: translate(-50%, -50%) rotate(-8deg) scale(0.92); opacity: 1; }
+  80%  { transform: translate(-50%, -50%) rotate(-8deg) scale(1.05); }
+  100% { transform: translate(-50%, -50%) rotate(-8deg) scale(1); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes bubbleIn {
+  0%   { transform: translate(-50%, -54%) rotate(3deg) scale(0.4); opacity: 0; }
+  65%  { transform: translate(-50%, -54%) rotate(3deg) scale(1.06); opacity: 1; }
+  85%  { transform: translate(-50%, -54%) rotate(3deg) scale(0.97); }
+  100% { transform: translate(-50%, -54%) rotate(3deg) scale(1); opacity: 1; }
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Firework particles ── */
+@keyframes shoot {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
+
+@keyframes wonEntry {
+  from { opacity: 0; transform: scale(0.8) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
