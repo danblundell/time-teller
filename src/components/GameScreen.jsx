@@ -135,7 +135,7 @@ function DesktopLayout({ phase, questionNumber, totalQuestions, currentTime, sco
             <polygon points="40,2 47,28 72,18 56,38 78,50 52,52 58,78 40,62 22,78 28,52 2,50 24,38 8,18 33,28"
               fill="var(--yellow)" stroke="var(--ink)" strokeWidth="2.5" strokeLinejoin="round" />
           </svg>
-          <span style={{ fontFamily: 'Bangers', fontSize: 26, color: 'var(--paper)', letterSpacing: 3 }}>TIME TELLER</span>
+          <span style={{ fontFamily: 'Bangers', fontSize: 26, color: 'var(--paper)', letterSpacing: 3 }}>TIME FOR FUN</span>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 32 }}>
