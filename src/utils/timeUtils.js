@@ -35,5 +35,14 @@ export function checkAnswer(hourInput, minuteInput, currentTime) {
   const h = parseInt(hourInput, 10)
   const m = parseInt(minuteInput, 10)
   if (isNaN(h) || isNaN(m)) return false
-  return h === currentTime.hours && m === currentTime.minutes
+  if (m !== currentTime.minutes) return false
+
+  const { hours } = currentTime
+  // Clock face shows 1–12, so accept both 12-hour and 24-hour readings.
+  // e.g. clock showing 3:xx → accept 3 or 15; clock showing 12:xx → accept 12 or 0 (midnight)
+  const valid = new Set([hours])
+  if (hours < 12) valid.add(hours + 12)
+  if (hours === 12) valid.add(0)
+
+  return valid.has(h)
 }
